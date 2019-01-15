@@ -10,8 +10,8 @@
 
 # Production context: All deploys to the main
 # repository branch will inherit these settings.
-[context.production]
-  command = "REACT_APP_STAGE=prod npm run build"
+#[context.production]
+#  command = "REACT_APP_STAGE=prod npm run build"
 
 # Deploy Preview context: All Deploy Previews
 # will inherit these settings.
