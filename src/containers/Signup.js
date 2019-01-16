@@ -7,6 +7,8 @@ import {
 } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 import LoaderButton from "../components/LoaderButton";
+import FacebookButton from "../components/FacebookButton";
+
 import "./Signup.css";
 
 export default class Signup extends Component {
@@ -61,6 +63,10 @@ export default class Signup extends Component {
     this.setState({ isLoading: false });
   }
 
+  handleFbLogin = () => {
+    this.props.userHasAuthenticated(true);
+  };
+
   handleConfirmationSubmit = async event => {
     event.preventDefault();
 
@@ -107,6 +113,8 @@ export default class Signup extends Component {
   renderForm() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <FacebookButton onLogin={this.handleFbLogin} />
+        <hr />
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
